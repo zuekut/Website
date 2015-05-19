@@ -58,25 +58,25 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li>
-							<a href="home.html">Home</a>
+							<a href="home.php">Home</a>
 						</li>
 						<li>
-							<a href="home.html#buytickets">BUY Tickets</a>
+							<a href="home.php#buytickets">BUY Tickets</a>
 						</li>
                         <li>
-							<a href="lineup.html">Line-Up</a>
+							<a href="lineup.php">Line-Up</a>
 						</li>
                         <li>
-							<a href="eventinfo.html">Event Info</a>
+							<a href="eventinfo.php">Event Info</a>
 						</li>
                         <li>
-							<a href="greenisbetter.html">Green is Better</a>
-						</li>
-                        <li>
-							<a href="login_members.html">Login/Members</a>
+							<a href="greenisbetter.php">Green is Better</a>
 						</li>
                         <li class="active">
-							<a href="aboutus.html">About Us</a>
+							<a href="login_members.php">Login/Members</a>
+						</li>
+                        <li>
+							<a href="aboutus.php">About Us</a>
 						</li>
                         
 					</ul>
@@ -102,27 +102,6 @@
 		</div>
 		
 	</div>
-    <div class="row content-standard" id="divprops" style="padding: 30px;">
-        <div class="page-header">
-            <h1>About US <small>R.J Johnson & Team</small></h1>
-        </div>
-        <p style="font-size: 16px">
-            Wood Festival was brought to life by R.J. Johnson, a world well-known DJ. While travelling around the world visiting many festivals, R.J. realised there was something missing in todays festivals. The need for a sustainable festival that takes great care of creating as little of an environmental footprint as possible, combined with the most innovative technologies, brought him to the idea of Wood Festival.<br>
-            <br>After contacting DARS International ltd., an Eindhoven based innnovative,technology-minded event management, various technoligies came to light that will be used during Wood Festival. The use of fully automated payment system that works on the basis of RFID chips, together will intuitive ways for visitors to gain access to more balance, gave the go-ahead of the team to create such an amazing event.
-            <br><br>We hope you enjoy the festival and that it will change your life.
-            <br><br>Your Wood Festival Team,
-</p>
-        <ul style="font-size:16px;">
-            <li>R.J Johnson</li>
-            <li>Simeon Parvanov</li>
-            <li>Remco Troost</li>
-            <li>Dimitar Aleksov</li>
-            <li>Ahmed Msheliza</li>
-            <li>Daniel Todorov</li>
-        </ul>
-        
-        
-    </div>
 	<div class="row clearfix" id="divprops">
 		<div class="col-md-4 column">
 			 <address> <strong>DARS International, ltd.</strong><br> Rachelsmolen 1<br> 5612 MA Eindhoven<br> <abbr title="Phone">P:</abbr> (06) 8191-3644</address>
@@ -155,11 +134,7 @@
 
 </div>
     
-<div class="scroll-top-wrapper ">
-	<span class="scroll-top-inner">
-		<i class="fa fa-2x fa-arrow-circle-o-up"></i>
-	</span>
-</div>   
+  
 </body>
     
    

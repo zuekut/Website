@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>RJ Festival v0.1</title>
+  <title>Wood Festival v0.1</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -46,9 +46,9 @@
                 <!--<p id="text_daysleft">Days left until RJ Festival</p>-->
                 <div id="countdown"></div>
 				<p>  
-					<a href="home.html#buytickets" class="btn btn-lg btn-danger" id="btn_buynow"><span class="glyphicon glyphicon-log-out"></span> Buy Tickets Now!</a>
+					<a href="home.php#buytickets" class="btn btn-lg btn-danger" id="btn_buynow"><span class="glyphicon glyphicon-log-out"></span> Buy Tickets Now!</a>
 				</p>
-                <a href="home.html" class="btn btn-default btn-success" id="btn_skip"><span class="glyphicon glyphicon-music"></span> Skip intro</a>
+                <a href="home.php" class="btn btn-default btn-success" id="btn_skip"><span class="glyphicon glyphicon-music"></span> Skip intro</a>
                 
 			</div>
 			

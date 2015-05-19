@@ -58,25 +58,25 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li>
-							<a href="home.html">Home</a>
+							<a href="home.php">Home</a>
 						</li>
 						<li>
-							<a href="home.html#buytickets">BUY Tickets</a>
+							<a href="home.php#buytickets">BUY Tickets</a>
 						</li>
                         <li>
-							<a href="lineup.html">Line-Up</a>
+							<a href="lineup.php">Line-Up</a>
 						</li>
                         <li>
-							<a href="eventinfo.html">Event Info</a>
+							<a href="eventinfo.php">Event Info</a>
+						</li>
+                        <li>
+							<a href="greenisbetter.php">Green is Better</a>
+						</li>
+                        <li>
+							<a href="login_members.php">Login/Members</a>
 						</li>
                         <li class="active">
-							<a href="greenisbetter.html">Green is Better</a>
-						</li>
-                        <li>
-							<a href="login_members.html">Login/Members</a>
-						</li>
-                        <li>
-							<a href="aboutus.html">About Us</a>
+							<a href="aboutus.php">About Us</a>
 						</li>
                         
 					</ul>
@@ -104,17 +104,27 @@
 	</div>
     <div class="row content-standard" id="divprops" style="padding: 30px;">
         <div class="page-header">
-            <h1>Green is Better <small>Environmentally Friendly</small></h1>
+            <h1>About US <small>R.J Johnson & Team</small></h1>
         </div>
-        <div>
-            <p style="font-size: 16px;">
-                We at Wood Festival strive to keep the world safe and sustainable to keep people dancing. We believe in a sustainable future where we care for people & planet.<br><br>
-                This year we ask for special attention for the way we handle the waste during your stay at Wood Festival. We feel the responsibility to cherish this lovely piece of nature. That's why we want to inspire all our visitors and fans to help us keep the festival and camping area as clean as possible.<br><br>
-                Lets reduce our waste and use the <strong>garbage collecting points</strong> to deposit all your garbage. The collecting points will be clearly indicated and can be found at the parking lots, camping site and festival ground. In addition, food and drinks that you will order will be served on <strong>100% recycable</strong> paper plates and cups, which will greatly help the reduction of plastic wastes in the world.<br>
-                <br><i>Don't waste the woods. Love the woods!</i>
-            </p>
-        </div>
+        <p style="font-size: 16px">
+            Wood Festival was brought to life by R.J. Johnson, a world well-known DJ. While travelling around the world visiting many festivals, R.J. realised there was something missing in todays festivals. The need for a sustainable festival that takes great care of creating as little of an environmental footprint as possible, combined with the most innovative technologies, brought him to the idea of Wood Festival.<br>
+            
+            <br>After contacting DARS International ltd., an Eindhoven based innnovative,technology-minded event management, various technoligies came to light that will be used during Wood Festival. The use of fully automated payment system that works on the basis of RFID chips, together will intuitive ways for visitors to gain access to more balance, gave the go-ahead of the team to create such an amazing event.
+            <br><img alt="200x271" src="img/DARSLOGO.png" class="img-rounded" style="width: 140px; height: 140px;">
+
+            <br><br>We hope you enjoy the festival and that it will change your life.
+            <br><br>Your Wood Festival Team,
+</p>
         
+        <ul style="font-size:16px;">
+            <li>R.J Johnson</li>
+            <li>Simeon Parvanov</li>
+            <li>Remco Troost</li>
+            <li>Dimitar Aleksov</li>
+            <li>Ahmed Msheliza</li>
+            <li>Daniel Todorov</li>
+        </ul>
+                
     </div>
 	<div class="row clearfix" id="divprops">
 		<div class="col-md-4 column">
