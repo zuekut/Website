@@ -28,7 +28,7 @@
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
   <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
-  <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="shortcut icon" href="img/festivalwood_logo.png">
   
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -73,7 +73,7 @@
 							<a href="greenisbetter.php">Green is Better</a>
 						</li>
                         <li>
-							<a href="login_members.php">Login/Members</a>
+							<a href="#loginModal" data-toggle="modal">Login/Members</a>
 						</li>
                         <li class="active">
 							<a href="aboutus.php">About Us</a>
@@ -162,7 +162,34 @@
 	<span class="scroll-top-inner">
 		<i class="fa fa-2x fa-arrow-circle-o-up"></i>
 	</span>
-</div>   
+</div>
+    <!--Login Modal-->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="loginModalLabel">Login</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="username-login" class="control-label">Username:</label>
+            <input type="text" class="form-control" id="username">
+          </div>
+          <div class="form-group">
+            <label for="password-login" class="control-label">Password:</label>
+            <input type="text" class="form-control" id="password-login">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Login</button>
+      </div>
+    </div>
+  </div>
+</div> 
 </body>
     
    

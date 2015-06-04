@@ -1,12 +1,51 @@
-<?php include("conn.php");?>
-
+<?php 
+    include("conn.php");
+    include("include.php");
+?>
 
 <?php
-//PHP for checking whether user has selected tickets and camping correctly.
+/*//PHP for checking whether user has selected tickets and camping correctly.
 
 //define variables
 $form_dayErr = $form_amountErr = $form_campingErr = "";
 $form_day = $form_amount = $form_camping = "";
+$form_creator = '';
+$visitor_info = '                    <div class="form-group">
+                        <label for="visitorFirstName1" class="col-sm-2 control-label">First Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="visitorFirstName1" placeholder="i.e. Robert">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="visitorLastName1" class="col-sm-2 control-label">Last Name</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="visitorLastName1" placeholder="i.e. Johnson">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="visitorDateOfBirth1" class="col-sm-2 control-label">Date of Birth</label>
+                        <div class="col-sm-10" id="visitorDateOfBirth">
+                            <input type="text" class="form-control" placeholder="dd/mm/yyyy">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="visitorSex1" class="col-sm-2 control-label">Sex</label>
+                        <div class="col-sm-10">
+                            <label class="radio-inline">
+                                <input type="radio" name="visitorSexOptions" id="inlineRadio1" value="option1"> <abbr title="Male">M</abbr>
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="visitorSexOptions" id="inlineRadio2" value="option2"> <abbr title="Female">F</abbr>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="visitorEmail1" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="visitorEmail1" placeholder="i.e. woodfestival@gmail.com">
+                        </div>
+                    </div>';
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
@@ -18,23 +57,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>';
     } else {
         
+        $form_amount = $_POST['form_amount2'];
+        
         if (empty($_POST['form_camping'])){
         echo "<script type='text/javascript'>window.onload=function(){ $('#campingModal').modal('show')}; </script>";
     } else {
-        echo "<h1>PHP Test complete</h1>";
+            $form_creator = str_repeat($visitor_info, $form_amount);
+            echo "<h1>PHP Test complete</h1> $form_creator";
+            
     }
     }
     if (empty($_POST['form_amount'])) {
         $form_amountErr = '<div id="alert-notickets" class="alert alert-dismissable alert-danger"><h4>Processing Error!</h4> <br><strong>Warning!</strong> There was an error processing your order. Please try again! <br><br><small><strong><i>Error 101</i></strong>: You have not selected any tickets. See <a href="#ticket_faq" class="alert-link" data-toggle="modal">FAQ</a>. If error persists please contact the server administrator</small></div>';
     } else {
-        echo "<h1>PHP Test complete</h1>";
+        $form_amount = $_POST['form_amount'];
+        echo "<h1>PHP Test complete</h1> $form_amount";
     }
 
     
     
     
 }
-
+*/
 ?>
 
 <!DOCTYPE html>
@@ -113,7 +157,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<a href="greenisbetter.php">Green is Better</a>
 						</li>
                         <li>
-							<a href="login_members.php">Login/Members</a>
+							<a href="#loginModal" data-toggle="modal">Login/Members</a>
 						</li>
                         <li>
 							<a href="aboutus.php">About Us</a>
@@ -139,6 +183,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <i class="fa fa-youtube"></i>
                 </a>
             </div>
+            
 		</div>
 		
 	</div>
@@ -204,8 +249,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			<p style="font-size: 15px;">
                 Below you will find various ticket types for Wood Festival! Whether you want to go One-Day or go full out with a Three-Day ticket + Camping, we got it all for you. The only restriction is that you order the same ticket for you and your friends. You can keep track of the amount of tickets there are left for each ticket type through the real-time tracker on the bottom. Keep in mind that tickets will be sold out fast! <br><br><em>For full ticket restrictions and any other questions, please refer to our <a href="#ticket_faq" data-toggle="modal">FAQ</a></em>
 			</p>
-			<span class="error"><?php echo $form_amountErr; ?></span>
-            <span class="error"><?php echo $form_campingErr; ?></span>
+			<span class="error"><div id="alert-notickets" class="alert alert-dismissable alert-danger collapse"><h4>Processing Error!</h4> <br><strong>Warning!</strong> There was an error processing your order. Please try again! <br><br><small><strong><i>Error 101</i></strong>: You have not selected any tickets. See <a href="#ticket_faq" class="alert-link" data-toggle="modal">FAQ</a>. If error persists please contact the server administrator</small></div></span>
 			<div class="row">
 				<div class="col-md-4">
 					<div class="thumbnail">
@@ -215,20 +259,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								One-Day <br><strong>€50</strong>
 							</h3>
 							<p>
-								The one-day ticket will allow you to visit the festival for one whole day. You can choose the day you wish to enter, but will have to leave at the end of the day. No camping possible. <br><a href="#ticket_moreinfo" data-toggle="modal"><b>More Info</b></a>
+								The one-day ticket will allow you to visit the festival for one whole day. The ticket is valid on <em>Saturday</em>, and you will have to leave the festival ground at the end of the day. No camping possible. <br><a href="#ticket_moreinfo" data-toggle="modal"><b>More Info</b></a>
 							</p>
                             
                             <div class="home_ticketform">
-                                <form role="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="form-amount" style="width:100%;">
-                                <div class="form-group">
-                                    <label for="form_day">Choose your Day:</label>
-                                    <select class="form-control" name="form_day">
-                                        <option>Friday</option>
-                                        <option>Saturday</option>
-                                        <option>Sunday</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
+                                <form role="form" name="onedayform" action="buytickets.php" method="post" class="form-amount" style="width:100%;">
+                                    <div class="form-clear"></div>
+<!--                                <div class="form-group">
                                     <label for="form_amount">Amount of tickets (max 10):</label>
                                     <select class="form-control" id="amount_tickets" name="form_amount">
                                         <option></option>
@@ -243,8 +280,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <option>9</option>
                                         <option>10</option>
                                     </select>
-                                </div>
-                                    <button id="submit" name="submit" type="submit" value="Send" class="btn btn-block btn-sm btn-success">Checkout <span class="glyphicon glyphicon-shopping-cart"></span></button>
+                                </div>-->
+                                    <div class="form-clear"></div>
+                                    <button id="submit" name="submit" type="submit" value="Send" onsubmit="return (validate());" class="btn btn-block btn-sm btn-success">Buy Now! <span class="glyphicon glyphicon-shopping-cart"></span></button>
                             </form>
                                 <div class="form-clear"></div>
                                 </div>
@@ -265,19 +303,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								Two-Day <br><strong>€90 (+€50 camping p/g)</strong>
 							</h3>
 							<p>
-								The two-day experience will allow you to visit the festival on 2 <em>consecutive</em> days (Friday/Saturday or Saturday/Sunday). You can also purchase an area at the camping for up to 6 people. <br><a href="#ticket_moreinfo" data-toggle="modal"><b>More Info</b></a>
+								The two-day experience will allow you to visit the festival on 2 <em>consecutive</em> days (Saturday to Sunday). You can also purchase an area at the camping. <br><a href="#ticket_moreinfo" data-toggle="modal"><b>More Info</b></a>
 							</p>
                             <div class="home_ticketform">
                                 <form role="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="form-inline">
-                                <div class="form-group" style="width: 100%;">
-                                    <label for="form_day">Choose your Days:</label>
-                                    <select class="form-control" name="form_day">
-                                        <option>Friday/Saturday</option>
-                                        <option>Saturday/Sunday</option>
-                                    </select>
-                                </div>
                                     <div class="form-clear"></div>
-                                <div class="form-group" style="width: 70%;">
+ <!--                               <div class="form-group" style="width: 70%;">
                                     <label for="form_amount2">Amount of tickets (max 6):</label>
                                     <select class="form-control" id="amount_tickets" name="form_amount2">
                                         <option></option>
@@ -295,9 +326,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         </label>
                                         
                                 </div>
+                                    <div class="form-clear"></div>-->
                                     <div class="form-clear"></div>
-                                    <div class="form-clear"></div>
-                                    <button id="submit" name="submit" type="submit" value="Send" class="btn btn-block btn-sm btn-success">Checkout <span class="glyphicon glyphicon-shopping-cart"></span></button>
+                                    <button id="submit" name="submit" type="submit" value="Send" class="btn btn-block btn-sm btn-success">Buy Now!   <span class="glyphicon glyphicon-shopping-cart"></span></button>
                             </form>
                                 <div class="form-clear"></div>
                                 </div>
@@ -313,22 +344,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <img alt="100x200" src="img/3Leaves.jpg" style="width: 350px; height: 200px;">
                             <div class="caption">
 							<h3>
-								Three-Day <br><strong>€130 (+€100 camping p/g)</strong>
+								Three-Day <br><strong>€130 (+€80 camping)</strong>
 							</h3>
 							<p>
-								This three day camping experience will allow you to see all artists and enjoy the whole festival (Friday-Saturday-Sunday). If you wish to include camping you can do so for a group upto 6 people. <br><a href="#ticket_moreinfo" data-toggle="modal"><b>More Info</b></a>
+								This three day experience will allow you to see all artists and enjoy the whole festival (Friday-Saturday-Sunday.) You can also add camping for just €40 per night! <br><a href="#ticket_moreinfo" data-toggle="modal"><b>More Info</b></a>
 							</p>
                             <div class="home_ticketform">       
-                                <form role="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="form">
-                                    <div class="checkbox">
-                                        <label for="form_camping" style="font-weight: bold;">
-                                            <input type="checkbox" name="form_camping"> Camping
-                                        </label>
-                                </div>
-                                    <div style="height: 70px;"></div>
-                                <div class="form-group" style="">
-                                    <label class="" for="form_amount2">Amount of tickets (max 6):</label>
-                                    <select class="form-control" name="form_amount2" id="amount_tickets">
+                                <form role="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="form-inline">
+                                    <div class="form-clear"></div>
+ <!--                               <div class="form-group" style="width: 100%;">
+                                   <label for="form_amount2">Amount of tickets (max 6):</label>
+                                    <select class="form-control" id="amount_tickets" name="form_amount2">
                                         <option></option>
                                         <option>1</option>
                                         <option>2</option>
@@ -338,14 +364,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <option>6</option>
                                     </select>
                                 </div>
-                                    <div style="height: 3px;"></div>
-
-                                    <button id="submit" name="submit" type="submit" value="Send" class="btn btn-block btn-sm btn-success">Checkout <span class="glyphicon glyphicon-shopping-cart"></span></button>
+                                    <div class="checkbox">
+                                        <label for="form_camping" style="font-weight: bold;">
+                                            <input type="checkbox" name="form_camping"> Camping
+                                        </label>
+                                        
+                                </div>
+                                    <div class="form-clear"></div>-->
+                                    <div class="form-clear"></div>
+                                    <button id="submit" name="submit" type="submit" value="Send" class="btn btn-block btn-sm btn-success">Buy Now!   <span class="glyphicon glyphicon-shopping-cart"></span></button>
                             </form>
                                 <div class="form-clear"></div>
                                 </div>
                             <div class="progress progress-striped active">
-                                <div class="progress-bar <?php echo ($progressbar_type3) ?>"aria-valuenow="<?php echo ($type3_available_count) ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo ($type3_percent) ?>%;"> <?php echo ($type3_available_count) ?> left</div>
+                                <div class="progress-bar <?php echo ($progressbar_type3) ?>"aria-valuenow="<?php echo ($type3_available_count) ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo ($type3_percent) ?>%;"> <?php echo ($type3_available_count) ?> left!</div>
 			</div>
 							
 						</div>
@@ -353,6 +385,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				</div>
 			</div>
 		</div>
+        </div>
 	</div>
 	<div class="row clearfix" id="divprops">
 		<div class="col-md-4 column">
@@ -421,7 +454,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="modal-content">
                 <div class="modal-header">Are you sure?</div>
                 <div class="modal-body"><p>You have not selected camping. Are you sure you <strong>do not</strong> want camping?</p></div>
-                <div class="modal-footer"> <a class="btn btn-default btn-success" href="">Yes</a><a class="btn btn-default btn-danger" href="#buytickets" data-dismiss="modal">Go back</a></div>
+                <div class="modal-footer"> <a class="btn btn-default btn-success" href="buytickets.php">Yes</a><a class="btn btn-default btn-danger" href="#buytickets" data-dismiss="modal">Go back</a></div>
             </div>
         </div>
 </div>
@@ -431,7 +464,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<i class="fa fa-2x fa-arrow-circle-o-up"></i>
 	</span>
 </div>
- 
+    <!--Login Modal-->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="loginModalLabel">Login</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="username-login" class="control-label">Username:</label>
+            <input type="text" class="form-control" id="username">
+          </div>
+          <div class="form-group">
+            <label for="password-login" class="control-label">Password:</label>
+            <input type="text" class="form-control" id="password-login">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Login</button>
+      </div>
+    </div>
+  </div>
+</div> 
 </body>
     
    

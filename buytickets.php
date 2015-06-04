@@ -1,3 +1,6 @@
+<?php
+    include("include.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +32,7 @@
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
   <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
-  <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="shortcut icon" href="img/festivalwood_logo.png">
   
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -63,7 +66,7 @@
 							<a href="home.php">Home</a>
 						</li>
 						<li class="active">
-							<a href="home.php#buytickets">BUY Tickets</a>
+							<a href="">BUY Tickets</a>
 						</li>
                         <li>
 							<a href="lineup.php">Line-Up</a>
@@ -75,7 +78,7 @@
 							<a href="greenisbetter.php">Green is Better</a>
 						</li>
                         <li>
-							<a href="login_members.php">Login/Members</a>
+							<a href="#loginModal" data-toggle="modal">Login/Members</a>
 						</li>
                         <li>
 							<a href="aboutus.php">About Us</a>
@@ -108,68 +111,68 @@
     <div class="row clearfix" id="divprops">
         <div class="page-header">
             <h1>
-                One step away! <small>Some details before you pay</small>
+                Buy tickets <small>Some details before you pay</small>
             </h1>
         </div>
         <div class="col-md-12 column">
-            <h3>Thank you, for selecting your tickets! Please enter all details below for each ticketholder.</h3>
+            <p style="font-size: 15px;">Thank you, for registering! Now that you are logged in, you can buy your ticket. Please enter all details below:</p><br>
         </div>
-        <div class="row">
-            <div class="col-md-9 column">
-                <p style="font-size:18px;">Placeholder Visitor1</p>
+        
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <label for="visitorFirstName1" class="col-sm-2 control-label">First Name</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="visitorFirstName1" placeholder="i.e. Robert">
+                        <div class="col-sm-12">
+                            <label class="col-sm-2 control-label" for="InputTicketType">Choose Ticket: </label>
+                            <select class="form-control" style="width: 20%;">
+                                <option>One Day (€50)</option>
+                                <option>Two Day (€90)</option>
+                                <option>Two Day + Camping (€140)</option>
+                                <option>Three Day (€130)</option>
+                                <option>Three Day + Camping (€210)</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="visitorLastName1" class="col-sm-2 control-label">Last Name</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" id="visitorLastName1" placeholder="i.e. Johnson">
+                        <div class="col-sm-12">
+                            <label class="col-sm-2 control-label" for="InputLastName">Last Name:</label>
+                            <input class="form-control" style="width:20%;" type="text" placeholder="Smith">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="visitorDateOfBirth1" class="col-sm-2 control-label">Date of Birth</label>
-                        <div class="col-sm-10" id="visitorDateOfBirth">
-                            <input type="text" class="form-control" placeholder="dd/mm/yyyy">
+                        <div class="col-sm-12">
+                            <label class="col-sm-2 control-label" for="InputFirstName">First Name:</label>
+                            <input  class="form-control" style="width:20%;" type="text" placeholder="John">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="visitorSex1" class="col-sm-2 control-label">Sex</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-12">
+                            <label class="col-sm-2 control-label" for="InputBirthdate">Birthdate:</label>
+                            <input  class="form-control" style="width:20%;" type="date">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label class="col-sm-2 control-label">Sex:</label>
                             <label class="radio-inline">
-                                <input type="radio" name="visitorSexOptions" id="inlineRadio1" value="option1"> <abbr title="Male">M</abbr>
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="visitorSexOptions" id="inlineRadio2" value="option2"> <abbr title="Female">F</abbr>
-                            </label>
+                                <input type="radio" name="optionsSex" id="optionsRadios1" value="option1" checked>
+                                M
+                              </label>
+                              <label class="radio-inline">
+                                <input type="radio" name="optionsSex" id="optionsRadios2" value="option2">
+                                F
+                              </label>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="visitorEmail1" class="col-sm-2 control-label">Email</label>
-                        <div class="col-sm-10">
-                            <input type="email" class="form-control" id="visitorEmail1" placeholder="i.e. woodfestival@gmail.com">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-12">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> I agree to the <strong><a href="#">Terms of Service</a></strong>
-                                </label>
-                            </div>
+                    <div class="form-group form-inline">
+                        <div class="col-sm-12">
+                            <label class="col-sm-2 control-label" for="InputEmail">Email:</label>
+                            <input  class="form-control" style="width:20%;" type="email">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-default">Proceed to payment</button>
+                            <button type="submit" class="btn btn-default">Proceed to Payment</button>
                         </div>
                     </div>
                 </form>
-            </div>
-            <div class="col-md-2" id="orderStatus">
+<!--            <div class="col-md-2" id="orderStatus">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title" style="text-align: center;">My Order</h3>
@@ -180,8 +183,7 @@
                     </div>
                     <div class="panel-footer">Total: <i>&euro; 100</i></div>
                 </div>
-            </div>
-        </div>
+            </div>-->
 	</div>
 	<div class="row clearfix" id="divprops">
 		<div class="col-md-4 column">
@@ -224,7 +226,33 @@
        });
     </script>
 </body>
-    
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="loginModalLabel">Login</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="username-login" class="control-label">Username:</label>
+            <input type="text" class="form-control" id="username">
+          </div>
+          <div class="form-group">
+            <label for="password-login" class="control-label">Password:</label>
+            <input type="text" class="form-control" id="password-login">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
    
     
 </html>
